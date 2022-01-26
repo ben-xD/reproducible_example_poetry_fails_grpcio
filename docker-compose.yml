@@ -1,0 +1,10 @@
+services:
+  development:
+    build:
+      context: "./"
+      dockerfile: "Dockerfile"
+    # Overrides default command so things don't shut down after the process ends.
+    # https://code.visualstudio.com/docs/remote/create-dev-container#_use-docker-compose
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - .:/workspace
